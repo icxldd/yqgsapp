@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:igdb/bloc/all_information_bloc.dart';
 import 'package:igdb/grpcs/services.pb.dart';
+import 'package:igdb/screens/pages/notification_detail.dart';
 import 'package:igdb/style/theme.dart' as style;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -93,74 +94,84 @@ class _AllState extends State<All> {
           onRefresh: _onRefresh,
           onLoading: _onLoading,
           child: ListView.builder(
-            itemBuilder: (c, i) => Container(
-              decoration: BoxDecoration(
-                color: style.Colors.whiteColor2,
-              ),
-              // height: ScreenUtil.getInstance().getHeight(150),
-              padding: EdgeInsets.all(15),
-              margin: EdgeInsets.only(left: 30, top: 15, bottom: 15, right: 30),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(dtos[i].type == 0
-                          ? '通知'
-                          : dtos[i].type == 1
-                              ? '直播'
-                              : dtos[i].type == 2
-                                  ? '讨论'
-                                  : '未知'),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Text(
-                        dtos[i].title,
-                        style: style.TextStyles.textH5,
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          dtos[i].description,
+            itemBuilder: (c, i) => GestureDetector(
+              onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => new NotificationDetail(
+                            notificationId: dtos[i].informationId)))
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: style.Colors.whiteColor2,
+                ),
+                // height: ScreenUtil.getInstance().getHeight(150),
+                padding: EdgeInsets.all(15),
+                margin:
+                    EdgeInsets.only(left: 30, top: 15, bottom: 15, right: 30),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(dtos[i].type == 0
+                            ? '通知'
+                            : dtos[i].type == 1
+                                ? '直播'
+                                : dtos[i].type == 2
+                                    ? '讨论'
+                                    : '未知'),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Text(
+                          dtos[i].title,
+                          style: style.TextStyles.textH5,
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            dtos[i].description,
+                            style: style.TextStyles.textH4,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          dtos[i].guild.displayName,
                           style: style.TextStyles.textH4,
                         ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        dtos[i].guild.displayName,
-                        style: style.TextStyles.textH4,
-                      ),
-                      Text(
-                        '|',
-                        style: style.TextStyles.textH4,
-                      ),
-                      Text(
-                        dtos[i].creator.displayName,
-                        style: style.TextStyles.textH4,
-                      ),
-                      Text(
-                        '|',
-                        style: style.TextStyles.textH4,
-                      ),
-                      Text(
-                        dtos[i].createdDate,
-                        style: style.TextStyles.textH4,
-                      ),
-                    ],
-                  ),
-                ],
+                        Text(
+                          '|',
+                          style: style.TextStyles.textH4,
+                        ),
+                        Text(
+                          dtos[i].creator.displayName,
+                          style: style.TextStyles.textH4,
+                        ),
+                        Text(
+                          '|',
+                          style: style.TextStyles.textH4,
+                        ),
+                        Text(
+                          dtos[i].createdDate,
+                          style: style.TextStyles.textH4,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             itemExtent: ScreenUtil.getInstance().getHeight(120),
@@ -169,6 +180,9 @@ class _AllState extends State<All> {
         ),
       );
 
+//  Navigator.push(context, MaterialPageRoute(builder: (_) {
+//             return new NotificationDetail();
+//           }));
       // return AnimationLimiter(
       //   child: Column(
       //       children: AnimationConfiguration.toStaggeredList(
