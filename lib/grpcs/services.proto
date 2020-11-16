@@ -1,0 +1,2207 @@
+/* Options:
+Date: 2020-11-16 13:39:40
+Version: 5.80
+Tip: To override a DTO option, remove "//" prefix before updating
+BaseUrl: https://church.yangqungongshe.com
+
+//GlobalNamespace: 
+//AddDescriptionAsComments: True
+*/
+
+syntax = "proto3";
+
+option csharp_namespace = "Sheep.Church";
+option php_namespace = "Sheep.Church";
+
+service GrpcServices {
+
+    rpc PutAuditItem(AuditItem) returns (AuditItemResponse) {}
+
+    rpc GetAuthenticate(Authenticate) returns (AuthenticateResponse) {}
+
+    rpc PostAuthenticate(Authenticate) returns (AuthenticateResponse) {}
+
+    rpc DeleteAuthenticate(Authenticate) returns (AuthenticateResponse) {}
+
+    rpc OptionsAuthenticate(Authenticate) returns (AuthenticateResponse) {}
+
+    rpc PutBlockGuild(BlockGuild) returns (BlockGuildResponse) {}
+
+    rpc PutChangeAccountAvatar(ChangeAccountAvatar) returns (ChangeAccountAvatarResponse) {}
+
+    rpc PutChangeAccountCover(ChangeAccountCover) returns (ChangeAccountCoverResponse) {}
+
+    rpc PutChangeAccountDescription(ChangeAccountDescription) returns (ChangeAccountDescriptionResponse) {}
+
+    rpc PutChangeAccountDisplayName(ChangeAccountDisplayName) returns (ChangeAccountDisplayNameResponse) {}
+
+    rpc PutChangeAccountDistrict(ChangeAccountDistrict) returns (ChangeAccountDistrictResponse) {}
+
+    rpc PutChangeAccountFullName(ChangeAccountFullName) returns (ChangeAccountFullNameResponse) {}
+
+    rpc PutChangeAccountIdentification(ChangeAccountIdentification) returns (ChangeAccountIdentificationResponse) {}
+
+    rpc PutChangeAccountPassword(ChangeAccountPassword) returns (ChangeAccountPasswordResponse) {}
+
+    rpc PutChangeAccountSignature(ChangeAccountSignature) returns (ChangeAccountSignatureResponse) {}
+
+    rpc PutChangeGuildAddress(ChangeGuildAddress) returns (ChangeGuildAddressResponse) {}
+
+    rpc PutChangeGuildAvatar(ChangeGuildAvatar) returns (ChangeGuildAvatarResponse) {}
+
+    rpc PutChangeGuildBackground(ChangeGuildBackground) returns (ChangeGuildBackgroundResponse) {}
+
+    rpc PutChangeGuildCanSearchByPhoneNumber(ChangeGuildCanSearchByPhoneNumber) returns (ChangeGuildCanSearchByPhoneNumberResponse) {}
+
+    rpc PutChangeGuildCover(ChangeGuildCover) returns (ChangeGuildCoverResponse) {}
+
+    rpc PutChangeGuildDescription(ChangeGuildDescription) returns (ChangeGuildDescriptionResponse) {}
+
+    rpc PutChangeGuildDisplayName(ChangeGuildDisplayName) returns (ChangeGuildDisplayNameResponse) {}
+
+    rpc PutChangeGuildDistrict(ChangeGuildDistrict) returns (ChangeGuildDistrictResponse) {}
+
+    rpc PutChangeGuildFullName(ChangeGuildFullName) returns (ChangeGuildFullNameResponse) {}
+
+    rpc PutChangeGuildIsPublic(ChangeGuildIsPublic) returns (ChangeGuildIsPublicResponse) {}
+
+    rpc PutChangeGuildJoinMode(ChangeGuildJoinMode) returns (ChangeGuildJoinModeResponse) {}
+
+    rpc PutChangeGuildMemberInfo(ChangeGuildMemberInfo) returns (ChangeGuildMemberInfoResponse) {}
+
+    rpc PostCreateDiscussContent(CreateDiscussContent) returns (CreateDiscussContentResponse) {}
+
+    rpc PostCreateDiscussContentComment(CreateDiscussContentComment) returns (CreateDiscussContentCommentResponse) {}
+
+    rpc PostCreateDiscussContentLike(CreateDiscussContentLike) returns (CreateDiscussContentLikeResponse) {}
+
+    rpc PostCreateDiscusses(CreateDiscusses) returns (CreateDiscussesResponse) {}
+
+    rpc PostCreateFavorite(CreateFavorite) returns (CreateFavoriteResponse) {}
+
+    rpc PostCreateGuild(CreateGuild) returns (CreateGuildResponse) {}
+
+    rpc PostCreateGuildAbuseReport(CreateGuildAbuseReport) returns (CreateGuildAbuseReportResponse) {}
+
+    rpc PostCreateGuildCharge(CreateGuildCharge) returns (CreateGuildChargeResponse) {}
+
+    rpc PostCreateGuildFile(CreateGuildFile) returns (CreateGuildFileResponse) {}
+
+    rpc PostCreateGuildFiles(CreateGuildFiles) returns (CreateGuildFilesResponse) {}
+
+    rpc PostCreateGuildFolder(CreateGuildFolder) returns (CreateGuildFolderResponse) {}
+
+    rpc PostCreateGuildGroup(CreateGuildGroup) returns (CreateGuildGroupResponse) {}
+
+    rpc PostCreateGuildGroupMembers(CreateGuildGroupMembers) returns (CreateGuildGroupMembersResponse) {}
+
+    rpc PostCreateInformationAbuseReport(CreateInformationAbuseReport) returns (CreateInformationAbuseReportResponse) {}
+
+    rpc PostCreateLivecastMessage(CreateLivecastMessage) returns (CreateLivecastMessageResponse) {}
+
+    rpc PostCreateLivecasts(CreateLivecasts) returns (CreateLivecastsResponse) {}
+
+    rpc PostCreateLocalNotification(CreateLocalNotification) returns (CreateLocalNotificationResponse) {}
+
+    rpc PostCreateNotifications(CreateNotifications) returns (CreateNotificationsResponse) {}
+
+    rpc PostCreatePost(CreatePost) returns (CreatePostResponse) {}
+
+    rpc PostCreateUserFeedback(CreateUserFeedback) returns (CreateUserFeedbackResponse) {}
+
+    rpc CallDeleteDiscuss(DeleteDiscuss) returns (DeleteDiscussResponse) {}
+
+    rpc CallDeleteDiscussContent(DeleteDiscussContent) returns (DeleteDiscussContentResponse) {}
+
+    rpc CallDeleteDiscussContentComment(DeleteDiscussContentComment) returns (DeleteDiscussContentCommentResponse) {}
+
+    rpc CallDeleteDiscussContentLike(DeleteDiscussContentLike) returns (DeleteDiscussContentLikeResponse) {}
+
+    rpc CallDeleteFavorite(DeleteFavorite) returns (DeleteFavoriteResponse) {}
+
+    rpc CallDeleteGuildFile(DeleteGuildFile) returns (DeleteGuildFileResponse) {}
+
+    rpc CallDeleteGuildFiles(DeleteGuildFiles) returns (DeleteGuildFilesResponse) {}
+
+    rpc CallDeleteGuildFolder(DeleteGuildFolder) returns (DeleteGuildFolderResponse) {}
+
+    rpc CallDeleteGuildGroup(DeleteGuildGroup) returns (DeleteGuildGroupResponse) {}
+
+    rpc CallDeleteGuildGroupMembers(DeleteGuildGroupMembers) returns (DeleteGuildGroupMembersResponse) {}
+
+    rpc CallDeleteGuildMembers(DeleteGuildMembers) returns (DeleteGuildMembersResponse) {}
+
+    rpc CallDeleteInformation(DeleteInformation) returns (DeleteInformationResponse) {}
+
+    rpc CallDeleteLivecast(DeleteLivecast) returns (DeleteLivecastResponse) {}
+
+    rpc CallDeleteLivecastMessage(DeleteLivecastMessage) returns (DeleteLivecastMessageResponse) {}
+
+    rpc CallDeleteNotification(DeleteNotification) returns (DeleteNotificationResponse) {}
+
+    rpc CallDeletePost(DeletePost) returns (DeletePostResponse) {}
+
+    rpc DeleteDismissGuild(DismissGuild) returns (DismissGuildResponse) {}
+
+    rpc PutEnterLivecast(EnterLivecast) returns (EnterLivecastResponse) {}
+
+    rpc PostGenerateGuildCode(GenerateGuildCode) returns (GenerateGuildCodeResponse) {}
+
+    rpc PostImageUploadOss(ImageUploadOss) returns (ImageUploadOssResponse) {}
+
+    rpc PutJoinDiscuss(JoinDiscuss) returns (JoinDiscussResponse) {}
+
+    rpc PostJoinGuild(JoinGuild) returns (JoinGuildResponse) {}
+
+    rpc PutJoinLivecast(JoinLivecast) returns (JoinLivecastResponse) {}
+
+    rpc DeleteLeaveGuild(LeaveGuild) returns (LeaveGuildResponse) {}
+
+    rpc PutLeaveLivecast(LeaveLivecast) returns (LeaveLivecastResponse) {}
+
+    rpc GetListGuildCharges(ListGuildCharges) returns (ListGuildChargesResponse) {}
+
+    rpc GetListGuildConsumes(ListGuildConsumes) returns (ListGuildConsumesResponse) {}
+
+    rpc GetListGuildFiles(ListGuildFiles) returns (ListGuildFilesResponse) {}
+
+    rpc GetListGuildFolders(ListGuildFolders) returns (ListGuildFoldersResponse) {}
+
+    rpc PostLoginAccountByMobile(LoginAccountByMobile) returns (LoginAccountByMobileResponse) {}
+
+    rpc PostLoginAccountByPassword(LoginAccountByPassword) returns (LoginAccountByPasswordResponse) {}
+
+    rpc DeleteLogoutAccount(LogoutAccount) returns (LogoutAccountResponse) {}
+
+    rpc PostNotifyLivecastsEvent(NotifyLivecastsEvent) returns (NotifyLivecastsEventResponse) {}
+
+    rpc PostRegisterDevice(RegisterDevice) returns (RegisterDeviceResponse) {}
+
+    rpc PutRemindDiscussReceivers(RemindDiscussReceivers) returns (RemindDiscussReceiversResponse) {}
+
+    rpc PutRemindInformationReceivers(RemindInformationReceivers) returns (RemindInformationReceiversResponse) {}
+
+    rpc PutRemindLivecastReceivers(RemindLivecastReceivers) returns (RemindLivecastReceiversResponse) {}
+
+    rpc PutRemindNotificationReceivers(RemindNotificationReceivers) returns (RemindNotificationReceiversResponse) {}
+
+    rpc PutReplyUserFeedback(ReplyUserFeedback) returns (ReplyUserFeedbackResponse) {}
+
+    rpc PostRequestSecurityToken(RequestSecurityToken) returns (RequestSecurityTokenResponse) {}
+
+    rpc PostResetAccountPassword(ResetAccountPassword) returns (ResetAccountPasswordResponse) {}
+
+    rpc GetSearchAudioFiles(SearchAudioFiles) returns (SearchAudioFilesResponse) {}
+
+    rpc GetSearchDiscussContents(SearchDiscussContents) returns (SearchDiscussContentsResponse) {}
+
+    rpc GetSearchGuildGroupMembers(SearchGuildGroupMembers) returns (SearchGuildGroupMembersResponse) {}
+
+    rpc GetSearchGuildGroups(SearchGuildGroups) returns (SearchGuildGroupsResponse) {}
+
+    rpc GetSearchGuildMembers(SearchGuildMembers) returns (SearchGuildMembersResponse) {}
+
+    rpc GetSearchImageFiles(SearchImageFiles) returns (SearchImageFilesResponse) {}
+
+    rpc PutSetGuildFileInfo(SetGuildFileInfo) returns (SetGuildFileInfoResponse) {}
+
+    rpc PutSetGuildGroupInfo(SetGuildGroupInfo) returns (SetGuildGroupInfoResponse) {}
+
+    rpc PutSetGuildMemberRole(SetGuildMemberRole) returns (SetGuildMemberRoleResponse) {}
+
+    rpc PutSetGuildMembersRole(SetGuildMembersRole) returns (SetGuildMembersRoleResponse) {}
+
+    rpc PutSetGuildMembersStatus(SetGuildMembersStatus) returns (SetGuildMembersStatusResponse) {}
+
+    rpc PutSetGuildMemberStatus(SetGuildMemberStatus) returns (SetGuildMemberStatusResponse) {}
+
+    rpc GetShowAccount(ShowAccount) returns (ShowAccountResponse) {}
+
+    rpc GetShowDiscuss(ShowDiscuss) returns (ShowDiscussResponse) {}
+
+    rpc GetShowDiscussContentMessages(ShowDiscussContentMessages) returns (ShowDiscussContentMessagesResponse) {}
+
+    rpc GetShowFavoriteInformations(ShowFavoriteInformations) returns (ShowFavoriteInformationsResponse) {}
+
+    rpc GetShowGuild(ShowGuild) returns (ShowGuildResponse) {}
+
+    rpc GetShowGuildCategories(ShowGuildCategories) returns (ShowGuildCategoriesResponse) {}
+
+    rpc GetShowGuildGroups(ShowGuildGroups) returns (ShowGuildGroupsResponse) {}
+
+    rpc GetShowGuildMembers(ShowGuildMembers) returns (ShowGuildMembersResponse) {}
+
+    rpc GetShowGuilds(ShowGuilds) returns (ShowGuildsResponse) {}
+
+    rpc GetShowGuildTotalFlux(ShowGuildTotalFlux) returns (ShowGuildTotalFluxResponse) {}
+
+    rpc GetShowInformationReceivers(ShowInformationReceivers) returns (ShowInformationReceiversResponse) {}
+
+    rpc GetShowInformations(ShowInformations) returns (ShowInformationsResponse) {}
+
+    rpc GetShowLivecast(ShowLivecast) returns (ShowLivecastResponse) {}
+
+    rpc GetShowNewDiscussContentMessagesCount(ShowNewDiscussContentMessagesCount) returns (ShowNewDiscussContentMessagesCountResponse) {}
+
+    rpc GetShowNotification(ShowNotification) returns (ShowNotificationResponse) {}
+
+    rpc GetShowPost(ShowPost) returns (ShowPostResponse) {}
+
+    rpc GetShowUserFeedbacks(ShowUserFeedbacks) returns (ShowUserFeedbacksResponse) {}
+
+    rpc GetShowUserLogs(ShowUserLogs) returns (ShowUserLogsResponse) {}
+
+    rpc GetShowVersion(ShowVersion) returns (ShowVersionResponse) {}
+
+    rpc PostSignupGuildMember(SignupGuildMember) returns (SignupGuildMemberResponse) {}
+
+    rpc PutStartLivecasts(StartLivecasts) returns (StartLivecastsResponse) {}
+
+    rpc PutStopLivecasts(StopLivecasts) returns (StopLivecastsResponse) {}
+
+    rpc ServerStreamFiles(StreamFiles) returns (stream FileContent) {}
+
+    rpc ServerStreamServerEvents(StreamServerEvents) returns (stream StreamServerEventsResponse) {}
+
+    rpc GetTakeAppleAppSiteAssociation(TakeAppleAppSiteAssociation) returns (TakeAppleAppSiteAssociationResponse) {}
+
+    rpc GetTakeGuild(TakeGuild) returns (TakeGuildResponse) {}
+
+    rpc GetTakeUploadTokenForQiniu(TakeUploadTokenForQiniu) returns (TakeUploadTokenForQiniuResponse) {}
+
+    rpc GetTakeUser(TakeUser) returns (TakeUserResponse) {}
+
+    rpc PutToggleDiscussContentLike(ToggleDiscussContentLike) returns (ToggleDiscussContentLikeResponse) {}
+
+    rpc PutTransferGuild(TransferGuild) returns (TransferGuildResponse) {}
+
+    rpc DeleteUnregisterDevice(UnregisterDevice) returns (UnregisterDeviceResponse) {}
+
+    rpc PostVerifySecurityToken(VerifySecurityToken) returns (VerifySecurityTokenResponse) {}
+
+    rpc GetViewManagerLogin(ViewManagerLogin) returns (EmptyResponse) {}
+}
+
+message AccountDto {
+   string UserId = 1;
+   string UserName = 2;
+   string PhoneNumber = 3;
+   string Email = 4;
+   string DisplayName = 5;
+   string Signature = 6;
+   string Description = 7;
+   string AvatarUrl = 8;
+   string CoverUrl = 9;
+   string Role = 10;
+   string FullName = 11;
+   string IdentificationUrl = 12;
+   bool IsCertificated = 13;
+   string Gender = 14;
+   string BirthDate = 15;
+   string Country = 16;
+   string Province = 17;
+   string City = 18;
+   string Address = 19;
+   string PostalCode = 20;
+   int32 Status = 21;
+   string StatusMessage = 22;
+}
+message ApplinkDetailDto {
+   string AppID = 1;
+   repeated string Paths = 2;
+}
+message ApplinksDto {
+   repeated string Apps = 1;
+   repeated ApplinkDetailDto Details = 2;
+}
+message AudioDto {
+   string Name = 1;
+   string Url = 2;
+   string Singer = 3;
+   float Duration = 4;
+}
+message AuditItem {
+   string ItemId = 1;
+   string Result = 2;
+}
+message AuditItemResponse {
+   AuditableItemDto Item = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message AuditableItemDto {
+   string ItemId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   int32 Type = 4;
+   string TypeName = 5;
+   string Title = 6;
+   string Description = 7;
+   string AvatarUrl = 8;
+   int32 Status = 9;
+   string StatusName = 10;
+   string StatusMessage = 11;
+   bool HasAudited = 12;
+   string AuditMessage = 13;
+   string AuditDescription = 14;
+   string AuditorId = 15;
+   UserDto Auditor = 16;
+   string AuditDate = 17;
+   string UserId = 18;
+   UserDto User = 19;
+   bool IsCurrentUser = 20;
+   string CreatedDate = 21;
+   string BlockedDate = 22;
+   repeated AuditableItemFileDto ImageFiles = 23;
+   repeated AuditableItemFileDto AudioFiles = 24;
+   repeated AuditableItemFileDto VideoFiles = 25;
+   repeated AuditableItemFileDto AttachmentFiles = 26;
+}
+message AuditableItemFileDto {
+   string FileId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string ItemId = 4;
+   AuditableItemDto Item = 5;
+   int32 Type = 6;
+   string Name = 7;
+   string Url = 8;
+   string PreviewUrl = 9;
+   string AvatarUrl = 10;
+   string ContentType = 11;
+   int32 ContentLength = 12;
+   int32 Width = 13;
+   int32 Height = 14;
+   float Duration = 15;
+}
+message Authenticate {
+   string provider = 1;
+   string State = 2;
+   string oauth_token = 3;
+   string oauth_verifier = 4;
+   string UserName = 5;
+   string Password = 6;
+   bool RememberMe = 7;
+   string Continue = 8;
+   string ErrorView = 9;
+   string nonce = 10;
+   string uri = 11;
+   string response = 12;
+   string qop = 13;
+   string nc = 14;
+   string cnonce = 15;
+   bool UseTokenCookie = 16;
+   string AccessToken = 17;
+   string AccessTokenSecret = 18;
+   string scope = 19;
+   map<string,string> Meta = 20;
+}
+message AuthenticateResponse {
+   string UserId = 1;
+   string SessionId = 2;
+   string UserName = 3;
+   string DisplayName = 4;
+   string ReferrerUrl = 5;
+   string BearerToken = 6;
+   string RefreshToken = 7;
+   string ProfileUrl = 8;
+   repeated string Roles = 9;
+   repeated string Permissions = 10;
+   ResponseStatus ResponseStatus = 11;
+   map<string,string> Meta = 12;
+}
+message BlockGuild {
+   string GuildId = 1;
+   string Reason = 2;
+   float Duration = 3;
+}
+message BlockGuildResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeAccountAvatar {
+   string AvatarUrl = 1;
+}
+message ChangeAccountAvatarResponse {
+   AccountDto Account = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeAccountCover {
+   string CoverUrl = 1;
+}
+message ChangeAccountCoverResponse {
+   AccountDto Account = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeAccountDescription {
+   string Description = 1;
+}
+message ChangeAccountDescriptionResponse {
+   AccountDto Account = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeAccountDisplayName {
+   string DisplayName = 1;
+}
+message ChangeAccountDisplayNameResponse {
+   AccountDto Account = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeAccountDistrict {
+   string Country = 1;
+   string Province = 2;
+   string City = 3;
+}
+message ChangeAccountDistrictResponse {
+   AccountDto Account = 1;
+   ResponseStatus ResponseStatus = 4;
+}
+message ChangeAccountFullName {
+   string FullName = 1;
+}
+message ChangeAccountFullNameResponse {
+   AccountDto Account = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeAccountIdentification {
+   string IdentificationUrl = 1;
+}
+message ChangeAccountIdentificationResponse {
+   AccountDto Account = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeAccountPassword {
+   string Password = 1;
+}
+message ChangeAccountPasswordResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message ChangeAccountSignature {
+   string Signature = 1;
+}
+message ChangeAccountSignatureResponse {
+   AccountDto Account = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildAddress {
+   string GuildId = 1;
+   string Address = 2;
+}
+message ChangeGuildAddressResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildAvatar {
+   string GuildId = 1;
+   string AvatarUrl = 2;
+}
+message ChangeGuildAvatarResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildBackground {
+   string GuildId = 1;
+   string BackgroundUrl = 2;
+}
+message ChangeGuildBackgroundResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildCanSearchByPhoneNumber {
+   string GuildId = 1;
+   bool CanSearchByPhoneNumber = 2;
+}
+message ChangeGuildCanSearchByPhoneNumberResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildCover {
+   string GuildId = 1;
+   string CoverUrl = 2;
+}
+message ChangeGuildCoverResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildDescription {
+   string GuildId = 1;
+   string Description = 2;
+}
+message ChangeGuildDescriptionResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildDisplayName {
+   string GuildId = 1;
+   string DisplayName = 2;
+}
+message ChangeGuildDisplayNameResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildDistrict {
+   string GuildId = 1;
+   string Country = 2;
+   string Province = 3;
+   string City = 4;
+}
+message ChangeGuildDistrictResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildFullName {
+   string GuildId = 1;
+   string FullName = 2;
+}
+message ChangeGuildFullNameResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildIsPublic {
+   string GuildId = 1;
+   bool IsPublic = 2;
+}
+message ChangeGuildIsPublicResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildJoinMode {
+   string GuildId = 1;
+   int32 JoinMode = 2;
+}
+message ChangeGuildJoinModeResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ChangeGuildMemberInfo {
+   string GuildId = 1;
+   string Nickname = 2;
+   string AvatarUrl = 3;
+}
+message ChangeGuildMemberInfoResponse {
+   GuildMemberDto Member = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateDiscussContent {
+   string DiscussId = 1;
+   int32 Type = 2;
+   string Description = 3;
+   repeated FileInfo Files = 4;
+}
+message CreateDiscussContentComment {
+   string ContentId = 1;
+   string ParentCommentId = 2;
+   string Description = 3;
+}
+message CreateDiscussContentCommentResponse {
+   DiscussContentCommentDto Comment = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateDiscussContentLike {
+   string ContentId = 1;
+}
+message CreateDiscussContentLikeResponse {
+   DiscussContentLikeDto Like = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateDiscussContentResponse {
+   DiscussContentDto Content = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateDiscusses {
+   string Title = 1;
+   string Description = 2;
+   string AvatarUrl = 3;
+   string EndDate = 4;
+   repeated FileInfo Files = 5;
+   repeated string ReceiverMemberIds = 6;
+   bool IsFeatured = 7;
+   string FeaturedExpiryDate = 8;
+   bool ShouldCopyFiles = 9;
+}
+message CreateDiscussesResponse {
+   repeated DiscussDto Discusses = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateFavorite {
+   string InformationId = 1;
+}
+message CreateFavoriteResponse {
+   FavoriteDto Favorite = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateGuild {
+   string DisplayName = 1;
+   string Description = 2;
+   string AvatarUrl = 3;
+   string Country = 4;
+   string Province = 5;
+   string City = 6;
+   string OwnerNickname = 7;
+   string OwnerAvatarUrl = 8;
+}
+message CreateGuildAbuseReport {
+   string GuildId = 1;
+   string Category = 2;
+   string Description = 3;
+}
+message CreateGuildAbuseReportResponse {
+   GuildAbuseReportDto AbuseReport = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateGuildCharge {
+   string GuildId = 1;
+   string ReferenceChargeId = 2;
+   int32 Type = 3;
+   float Amount = 4;
+   float ConsumedMoney = 5;
+   string Remark = 6;
+   bool isInward = 7;
+}
+message CreateGuildChargeResponse {
+   GuildChargeDto Charge = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateGuildFile {
+   string GuildId = 1;
+   string FolderId = 2;
+   int32 Type = 3;
+   string Name = 4;
+   string Url = 5;
+   string AvatarUrl = 6;
+   string Category = 7;
+   string ContentType = 8;
+   int32 ContentLength = 9;
+   int32 Width = 10;
+   int32 Height = 11;
+   float Duration = 12;
+}
+message CreateGuildFileResponse {
+   GuildFileDto File = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateGuildFiles {
+   string GuildId = 1;
+   string FolderId = 2;
+   repeated FileInfo Files = 3;
+}
+message CreateGuildFilesResponse {
+   repeated GuildFileDto Files = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateGuildFolder {
+   string GuildId = 1;
+   string ParentFolderId = 2;
+   string Name = 3;
+}
+message CreateGuildFolderResponse {
+   GuildFolderDto Folder = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateGuildGroup {
+   string GuildId = 1;
+   string Name = 2;
+   repeated string UserIds = 3;
+}
+message CreateGuildGroupMembers {
+   string GroupId = 1;
+   repeated string UserIds = 2;
+}
+message CreateGuildGroupMembersResponse {
+   repeated GuildMemberDto Members = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateGuildGroupResponse {
+   GuildGroupDto Group = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateGuildResponse {
+   GuildMemberDto Member = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateInformationAbuseReport {
+   string InformationId = 1;
+   string Category = 2;
+   string Description = 3;
+}
+message CreateInformationAbuseReportResponse {
+   InformationAbuseReportDto AbuseReport = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateLivecastMessage {
+   string LivecastId = 1;
+   int32 Type = 2;
+   string Description = 3;
+   string Url = 4;
+   string AvatarUrl = 5;
+   int32 ContentLength = 6;
+   int32 Width = 7;
+   int32 Height = 8;
+   float Duration = 9;
+}
+message CreateLivecastMessageResponse {
+   LivecastMessageDto Message = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateLivecasts {
+   string Title = 1;
+   string Description = 2;
+   string Speaker = 3;
+   string AvatarUrl = 4;
+   string BeginDate = 5;
+   string EndDate = 6;
+   repeated FileInfo Files = 7;
+   repeated string ReceiverMemberIds = 8;
+   bool IsFeatured = 9;
+   string FeaturedExpiryDate = 10;
+   bool ShouldCopyFiles = 11;
+}
+message CreateLivecastsResponse {
+   repeated LivecastDto Livecasts = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateLocalNotification {
+   string GuildId = 1;
+   string Title = 2;
+   string Description = 3;
+   string AvatarUrl = 4;
+}
+message CreateLocalNotificationResponse {
+   NotificationDto Notification = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateNotifications {
+   string Description = 1;
+   string AvatarUrl = 2;
+   repeated FileInfo Files = 3;
+   repeated string ReceiverMemberIds = 4;
+   bool ShouldPublish = 5;
+   string PublishedScheduleDate = 6;
+   bool IsFeatured = 7;
+   string FeaturedExpiryDate = 8;
+   bool ShouldCopyFiles = 9;
+}
+message CreateNotificationsResponse {
+   repeated NotificationDto Notifications = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreatePost {
+   PostDto Post = 1;
+}
+message CreatePostResponse {
+   PostDto Post = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message CreateUserFeedback {
+   string Description = 1;
+}
+message CreateUserFeedbackResponse {
+   UserFeedbackDto Feedback = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message DeleteDiscuss {
+   string DiscussId = 1;
+}
+message DeleteDiscussContent {
+   string ContentId = 1;
+}
+message DeleteDiscussContentComment {
+   string CommentId = 1;
+}
+message DeleteDiscussContentCommentResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteDiscussContentLike {
+   string ContentId = 1;
+}
+message DeleteDiscussContentLikeResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteDiscussContentResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteDiscussResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteFavorite {
+   string InformationId = 1;
+}
+message DeleteFavoriteResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteGuildFile {
+   string FileId = 1;
+}
+message DeleteGuildFileResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteGuildFiles {
+   repeated string FileIds = 1;
+}
+message DeleteGuildFilesResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteGuildFolder {
+   string FolderId = 1;
+}
+message DeleteGuildFolderResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteGuildGroup {
+   string GroupId = 1;
+}
+message DeleteGuildGroupMembers {
+   string GroupId = 1;
+   repeated string UserIds = 2;
+}
+message DeleteGuildGroupMembersResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteGuildGroupResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteGuildMembers {
+   string GuildId = 1;
+   repeated string UserIds = 2;
+   bool ShouldBlock = 3;
+}
+message DeleteGuildMembersResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteInformation {
+   string InformationId = 1;
+}
+message DeleteInformationResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteLivecast {
+   string LivecastId = 1;
+}
+message DeleteLivecastMessage {
+   string MessageId = 1;
+}
+message DeleteLivecastMessageResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteLivecastResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeleteNotification {
+   string NotificationId = 1;
+}
+message DeleteNotificationResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DeletePost {
+   string PostId = 1;
+}
+message DeletePostResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message DiscussContentCommentDto {
+   string CommentId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string DiscussId = 4;
+   DiscussDto Discuss = 5;
+   string ContentId = 6;
+   DiscussContentDto Content = 7;
+   string ParentCommentId = 8;
+   DiscussContentCommentDto ParentComment = 9;
+   string UserId = 10;
+   UserDto User = 11;
+   string UserMemberId = 12;
+   GuildMemberDto UserMember = 13;
+   bool IsCurrentUser = 14;
+   string Description = 15;
+   int32 Status = 16;
+   string StatusMessage = 17;
+   string CreatedDate = 18;
+}
+message DiscussContentDto {
+   string ContentId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string DiscussId = 4;
+   DiscussDto Discuss = 5;
+   string UserId = 6;
+   UserDto User = 7;
+   string UserMemberId = 8;
+   GuildMemberDto UserMember = 9;
+   bool IsCurrentUser = 10;
+   int32 Type = 11;
+   string Description = 12;
+   int32 Status = 13;
+   string StatusMessage = 14;
+   string CreatedDate = 15;
+   int32 FilesCount = 16;
+   int32 ImageFilesCount = 17;
+   int32 AudioFilesCount = 18;
+   int32 VideoFilesCount = 19;
+   int32 AttachmentFilesCount = 20;
+   int32 LikesCount = 21;
+   int32 CommentsCount = 22;
+   repeated DiscussContentFileDto ImageFiles = 23;
+   DiscussContentFileDto AudioFile = 24;
+   DiscussContentFileDto VideoFile = 25;
+   DiscussContentFileDto AttachmentFile = 26;
+   repeated DiscussContentLikeDto Likes = 27;
+   repeated DiscussContentCommentDto Comments = 28;
+   bool HasUserLiked = 29;
+   bool HasUserCommented = 30;
+}
+message DiscussContentFileDto {
+   string FileId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string DiscussId = 4;
+   DiscussDto Discuss = 5;
+   string ContentId = 6;
+   DiscussContentDto Content = 7;
+   int32 Type = 8;
+   string Name = 9;
+   string Url = 10;
+   string PreviewUrl = 11;
+   string AvatarUrl = 12;
+   string ContentType = 13;
+   int32 ContentLength = 14;
+   int32 Width = 15;
+   int32 Height = 16;
+   float Duration = 17;
+}
+message DiscussContentLikeDto {
+   string LikeId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string DiscussId = 4;
+   DiscussDto Discuss = 5;
+   string ContentId = 6;
+   DiscussContentDto Content = 7;
+   string UserId = 8;
+   UserDto User = 9;
+   string UserMemberId = 10;
+   GuildMemberDto UserMember = 11;
+   bool IsCurrentUser = 12;
+}
+message DiscussContentMessageDto {
+   string MessageId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string DiscussId = 4;
+   DiscussDto Discuss = 5;
+   string ContentId = 6;
+   DiscussContentDto Content = 7;
+   string ParentMessageId = 8;
+   DiscussContentMessageDto ParentMessage = 9;
+   int32 Type = 10;
+   string UserId = 11;
+   UserDto User = 12;
+   string UserMemberId = 13;
+   GuildMemberDto UserMember = 14;
+   bool IsCurrentUser = 15;
+   string Description = 16;
+   string CreatedDate = 17;
+}
+message DiscussDto {
+   string DiscussId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string Title = 4;
+   string Description = 5;
+   string AvatarUrl = 6;
+   int32 Status = 7;
+   string StatusMessage = 8;
+   string CreatorId = 9;
+   UserDto Creator = 10;
+   string CreatorMemberId = 11;
+   GuildMemberDto CreatorMember = 12;
+   bool IsCurrentCreator = 13;
+   string CreatedDate = 14;
+   string BeginDate = 15;
+   string EndDate = 16;
+   int32 FilesCount = 17;
+   int32 ImageFilesCount = 18;
+   int32 AudioFilesCount = 19;
+   int32 VideoFilesCount = 20;
+   int32 AttachmentFilesCount = 21;
+   int32 ReceiversCount = 22;
+   int32 ViewedReceiversCount = 23;
+   int32 UnviewedReceiversCount = 24;
+   int32 JoinedReceiversCount = 25;
+   int32 UnjoinedReceiversCount = 26;
+   int32 ContentsCount = 27;
+   repeated DiscussFileDto ImageFiles = 28;
+   DiscussFileDto AudioFile = 29;
+   DiscussFileDto VideoFile = 30;
+   repeated DiscussFileDto AttachmentFiles = 31;
+   repeated DiscussReceiverDto Receivers = 32;
+   bool HasUserViewed = 33;
+   bool HasUserJoined = 34;
+}
+message DiscussFileDto {
+   string FileId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string DiscussId = 4;
+   DiscussDto Discuss = 5;
+   int32 Type = 6;
+   string Name = 7;
+   string Url = 8;
+   string PreviewUrl = 9;
+   string AvatarUrl = 10;
+   string ContentType = 11;
+   int32 ContentLength = 12;
+   int32 Width = 13;
+   int32 Height = 14;
+   float Duration = 15;
+}
+message DiscussReceiverDto {
+   string ReceiverId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string DiscussId = 4;
+   DiscussDto Discuss = 5;
+   string UserId = 6;
+   UserDto User = 7;
+   string UserMemberId = 8;
+   GuildMemberDto UserMember = 9;
+   bool HasViewed = 10;
+   bool HasJoined = 11;
+}
+message DismissGuild {
+   string GuildId = 1;
+}
+message DismissGuildResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message EmptyResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message EnterLivecast {
+   string LivecastId = 1;
+}
+message EnterLivecastResponse {
+   LivecastReceiverDto Receiver = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message FavoriteDto {
+   string FavoriteId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string InformationId = 4;
+   InformationDto Information = 5;
+   string UserId = 6;
+   UserDto User = 7;
+   string CreatedDate = 8;
+}
+message FileContent {
+   string Name = 1;
+   string Type = 2;
+   int32 Length = 3;
+   bytes Body = 4;
+   ResponseStatus ResponseStatus = 5;
+}
+message FileInfo {
+   int32 Type = 1;
+   string Name = 2;
+   string Url = 3;
+   string AvatarUrl = 4;
+   string ContentType = 5;
+   int32 ContentLength = 6;
+   int32 Width = 7;
+   int32 Height = 8;
+   float Duration = 9;
+}
+message GenerateGuildCode {
+   string GuildId = 1;
+   int32 Role = 2;
+}
+message GenerateGuildCodeResponse {
+   string Code = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message GuildAbuseReportDto {
+   string ReportId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string Category = 4;
+   string Description = 5;
+   int32 OwnerId = 6;
+   UserDto Owner = 7;
+}
+message GuildCategoryDto {
+   string Name = 1;
+   string AvatarUrl = 2;
+   repeated GuildCategoryDto Categories = 3;
+   repeated GuildMemberDto Members = 4;
+}
+message GuildChargeDto {
+   string ChargeId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string ReferenceChargeId = 4;
+   GuildChargeDto ReferenceCharge = 5;
+   int32 Type = 6;
+   string TypeName = 7;
+   double Amount = 8;
+   double ConsumedMoney = 9;
+   string Remark = 10;
+   string OwnerId = 11;
+   UserDto Owner = 12;
+   bool IsCurrentOwner = 13;
+   string CreatedDate = 14;
+}
+message GuildConsumeDto {
+   string ConsumeId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   int32 Type = 4;
+   string TypeName = 5;
+   double Amount = 6;
+   string Remark = 7;
+   string OwnerId = 8;
+   UserDto Owner = 9;
+   bool IsCurrentOwner = 10;
+   string CreatedDate = 11;
+}
+message GuildDto {
+   string GuildId = 1;
+   string DisplayName = 2;
+   string Description = 3;
+   string AvatarUrl = 4;
+   string CoverUrl = 5;
+   string BackgroundUrl = 6;
+   string FullName = 7;
+   bool IsCertificated = 8;
+   string Country = 9;
+   string Province = 10;
+   string City = 11;
+   string Address = 12;
+   string PostalCode = 13;
+   bool IsPublic = 14;
+   bool CanSearchByPhoneNumber = 15;
+   int32 JoinMode = 16;
+   int32 Status = 17;
+   string StatusName = 18;
+   string StatusMessage = 19;
+   int32 OwnerId = 20;
+   UserDto Owner = 21;
+   bool IsOwner = 22;
+   string CreatedDate = 23;
+   int32 ViolationCount = 24;
+   int32 MembersCount = 25;
+   int32 BelieversCount = 26;
+   int32 LeadersCount = 27;
+   int32 PastorsCount = 28;
+   repeated GuildMemberDto Members = 29;
+}
+message GuildFileDto {
+   string FileId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string FolderId = 4;
+   GuildFolderDto Folder = 5;
+   int32 Type = 6;
+   string Name = 7;
+   string Path = 8;
+   string Url = 9;
+   string PreviewUrl = 10;
+   string AvatarUrl = 11;
+   string Category = 12;
+   string ContentType = 13;
+   int32 ContentLength = 14;
+   int32 Width = 15;
+   int32 Height = 16;
+   float Duration = 17;
+   string OwnerId = 18;
+   UserDto Owner = 19;
+   string OwnerMemberId = 20;
+   GuildMemberDto OwnerMember = 21;
+   bool IsCurrentOwner = 22;
+   string CreatedDate = 23;
+}
+message GuildFolderDto {
+   string FolderId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string ParentFolderId = 4;
+   GuildFolderDto ParentFolder = 5;
+   string Name = 6;
+   string Path = 7;
+   repeated GuildFileDto Files = 8;
+}
+message GuildGroupDto {
+   string GroupId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string Name = 4;
+   repeated GuildMemberDto Members = 5;
+}
+message GuildMemberDto {
+   string MemberId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string UserId = 4;
+   UserDto User = 5;
+   string Nickname = 6;
+   string AvatarUrl = 7;
+   string PhoneNumber = 8;
+   int32 Role = 9;
+   int32 Status = 10;
+   string StatusMessage = 11;
+}
+message GuildTotalFluxDto {
+   string GuildId = 1;
+   GuildDto Guild = 2;
+   double ChargeFlux = 3;
+   double ConsumeFlux = 4;
+   double RemainFlux = 5;
+}
+message ImageUploadOss {
+}
+message ImageUploadOssResponse {
+   string Url = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message InformationAbuseReportDto {
+   string ReportId = 1;
+   string InformationId = 2;
+   InformationDto Information = 3;
+   string Category = 4;
+   string Description = 5;
+   int32 OwnerId = 6;
+   UserDto Owner = 7;
+}
+message InformationDto {
+   string InformationId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   int32 Type = 4;
+   string Title = 5;
+   string Description = 6;
+   string AvatarUrl = 7;
+   int32 Status = 8;
+   string StatusMessage = 9;
+   string CreatorId = 10;
+   UserDto Creator = 11;
+   string CreatorMemberId = 12;
+   GuildMemberDto CreatorMember = 13;
+   bool IsCurrentCreator = 14;
+   string CreatedDate = 15;
+   string BeginDate = 16;
+   string EndDate = 17;
+   bool IsFeatured = 18;
+   int32 FilesCount = 19;
+   int32 ImageFilesCount = 20;
+   int32 AudioFilesCount = 21;
+   int32 VideoFilesCount = 22;
+   int32 AttachmentFilesCount = 23;
+   int32 ReceiversCount = 24;
+   int32 ViewedReceiversCount = 25;
+   int32 UnviewedReceiversCount = 26;
+   int32 JoinedReceiversCount = 27;
+   int32 UnjoinedReceiversCount = 28;
+   int32 OnlineReceiversCount = 29;
+   int32 WasOnlineReceiversCount = 30;
+   int32 ContentsCount = 31;
+   repeated InformationFileDto ImageFiles = 32;
+   repeated InformationFileDto AudioFiles = 33;
+   repeated InformationFileDto VideoFiles = 34;
+   repeated InformationFileDto AttachmentFiles = 35;
+   bool HasUserViewed = 36;
+   bool HasUserJoined = 37;
+}
+message InformationFileDto {
+   string FileId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string InformationId = 4;
+   InformationDto Information = 5;
+   int32 Type = 6;
+   string Name = 7;
+   string Url = 8;
+   string PreviewUrl = 9;
+   string AvatarUrl = 10;
+   string ContentType = 11;
+   int32 ContentLength = 12;
+   int32 Width = 13;
+   int32 Height = 14;
+   float Duration = 15;
+}
+message InformationReceiverDto {
+   string ReceiverId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string InformationId = 4;
+   InformationDto Information = 5;
+   string UserId = 6;
+   UserDto User = 7;
+   string UserMemberId = 8;
+   GuildMemberDto UserMember = 9;
+   bool HasViewed = 10;
+   bool HasJoined = 11;
+   bool IsOnline = 12;
+   bool WasOnline = 13;
+}
+message JoinDiscuss {
+   string DiscussId = 1;
+}
+message JoinDiscussResponse {
+   DiscussReceiverDto Receiver = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message JoinGuild {
+   string GuildId = 1;
+   string Code = 2;
+   string MemberNickname = 3;
+   string MemberAvatarUrl = 4;
+}
+message JoinGuildResponse {
+   GuildMemberDto Member = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message JoinLivecast {
+   string LivecastId = 1;
+}
+message JoinLivecastResponse {
+   LivecastReceiverDto Receiver = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message LeaveGuild {
+   string GuildId = 1;
+}
+message LeaveGuildResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message LeaveLivecast {
+   string LivecastId = 1;
+}
+message LeaveLivecastResponse {
+   LivecastReceiverDto Receiver = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ListGuildCharges {
+   string GuildId = 1;
+   int32 Type = 2;
+   string OrderBy = 3;
+   bool Descending = 4;
+   int32 Skip = 5;
+   int32 Limit = 6;
+}
+message ListGuildChargesResponse {
+   repeated GuildChargeDto Charges = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ListGuildConsumes {
+   string GuildId = 1;
+   int32 Type = 2;
+   string OrderBy = 3;
+   bool Descending = 4;
+   int32 Skip = 5;
+   int32 Limit = 6;
+}
+message ListGuildConsumesResponse {
+   repeated GuildConsumeDto Consumes = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ListGuildFiles {
+   string GuildId = 1;
+   string FolderId = 2;
+   int32 Type = 3;
+   string Category = 4;
+   string OrderBy = 5;
+   bool Descending = 6;
+   int32 Skip = 7;
+   int32 Limit = 8;
+}
+message ListGuildFilesResponse {
+   repeated GuildFileDto Files = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ListGuildFolders {
+   string GuildId = 1;
+   string ParentFolderId = 2;
+   string OrderBy = 3;
+   bool Descending = 4;
+   int32 Skip = 5;
+   int32 Limit = 6;
+}
+message ListGuildFoldersResponse {
+   repeated GuildFolderDto Folders = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message LivecastDto {
+   string LivecastId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string Identifier = 4;
+   string Title = 5;
+   string Description = 6;
+   string Speaker = 7;
+   string AvatarUrl = 8;
+   string RtmpPushUrl = 9;
+   string RtmpPlayUrl = 10;
+   string HlsPlayUrl = 11;
+   string RecordUrl = 12;
+   int32 Status = 13;
+   string StatusMessage = 14;
+   string CreatorId = 15;
+   UserDto Creator = 16;
+   string CreatorMemberId = 17;
+   GuildMemberDto CreatorMember = 18;
+   bool IsCurrentCreator = 19;
+   string CreatedDate = 20;
+   string BeginDate = 21;
+   string EndDate = 22;
+   int32 FilesCount = 23;
+   int32 ImageFilesCount = 24;
+   int32 AudioFilesCount = 25;
+   int32 VideoFilesCount = 26;
+   int32 AttachmentFilesCount = 27;
+   int32 ReceiversCount = 28;
+   int32 ViewedReceiversCount = 29;
+   int32 UnviewedReceiversCount = 30;
+   int32 JoinedReceiversCount = 31;
+   int32 UnjoinedReceiversCount = 32;
+   int32 OnlineReceiversCount = 33;
+   int32 WasOnlineReceiversCount = 34;
+   repeated LivecastFileDto ImageFiles = 35;
+   repeated LivecastFileDto AudioFiles = 36;
+   repeated LivecastFileDto VideoFiles = 37;
+   repeated LivecastFileDto AttachmentFiles = 38;
+   repeated LivecastReceiverDto Receivers = 39;
+   bool HasUserViewed = 40;
+   bool HasUserJoined = 41;
+}
+message LivecastFileDto {
+   string FileId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string LivecastId = 4;
+   LivecastDto Livecast = 5;
+   int32 Type = 6;
+   string Name = 7;
+   string Url = 8;
+   string PreviewUrl = 9;
+   string AvatarUrl = 10;
+   string ContentType = 11;
+   int32 ContentLength = 12;
+   int32 Width = 13;
+   int32 Height = 14;
+   float Duration = 15;
+}
+message LivecastMessageDto {
+   string MessageId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string LivecastId = 4;
+   LivecastDto Livecast = 5;
+   string UserId = 6;
+   UserDto User = 7;
+   string UserMemberId = 8;
+   GuildMemberDto UserMember = 9;
+   bool IsCurrentUser = 10;
+   int32 Type = 11;
+   string Description = 12;
+   string Url = 13;
+   string AvatarUrl = 14;
+   string ContentType = 15;
+   int32 ContentLength = 16;
+   int32 Width = 17;
+   int32 Height = 18;
+   float Duration = 19;
+   int32 Status = 20;
+   string StatusMessage = 21;
+   string CreatedDate = 22;
+}
+message LivecastReceiverDto {
+   string ReceiverId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string LivecastId = 4;
+   LivecastDto Livecast = 5;
+   string UserId = 6;
+   UserDto User = 7;
+   string UserMemberId = 8;
+   GuildMemberDto UserMember = 9;
+   bool HasViewed = 10;
+   bool HasJoined = 11;
+   bool IsOnline = 12;
+   bool WasOnline = 13;
+}
+message LoginAccountByMobile {
+   string PhoneNumber = 1;
+   string Token = 2;
+   string DeviceToken = 3;
+}
+message LoginAccountByMobileResponse {
+   string SessionId = 1;
+   int32 UserId = 2;
+   bool NewlyCreated = 3;
+   ResponseStatus ResponseStatus = 4;
+}
+message LoginAccountByPassword {
+   string UserNameOrPhoneNumber = 1;
+   string Password = 2;
+   string DeviceToken = 3;
+}
+message LoginAccountByPasswordResponse {
+   string SessionId = 1;
+   int32 UserId = 2;
+   bool NewlyCreated = 3;
+   ResponseStatus ResponseStatus = 4;
+}
+message LogoutAccount {
+   string DeviceToken = 1;
+}
+message LogoutAccountResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message NotificationDto {
+   string NotificationId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string Title = 4;
+   string Description = 5;
+   string AvatarUrl = 6;
+   int32 Status = 7;
+   string StatusMessage = 8;
+   string CreatorId = 9;
+   UserDto Creator = 10;
+   string CreatorMemberId = 11;
+   GuildMemberDto CreatorMember = 12;
+   bool IsCurrentCreator = 13;
+   string CreatedDate = 14;
+   int32 FilesCount = 15;
+   int32 ImageFilesCount = 16;
+   int32 AudioFilesCount = 17;
+   int32 VideoFilesCount = 18;
+   int32 AttachmentFilesCount = 19;
+   int32 ReceiversCount = 20;
+   int32 ViewedReceiversCount = 21;
+   int32 UnviewedReceiversCount = 22;
+   repeated NotificationFileDto ImageFiles = 23;
+   NotificationFileDto AudioFile = 24;
+   NotificationFileDto VideoFile = 25;
+   repeated NotificationFileDto AttachmentFiles = 26;
+   repeated NotificationReceiverDto Receivers = 27;
+   bool HasUserViewed = 28;
+   bool HasUserJoined = 29;
+}
+message NotificationFileDto {
+   string FileId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string NotificationId = 4;
+   NotificationDto Notification = 5;
+   int32 Type = 6;
+   string Name = 7;
+   string Url = 8;
+   string PreviewUrl = 9;
+   string AvatarUrl = 10;
+   string ContentType = 11;
+   int32 ContentLength = 12;
+   int32 Width = 13;
+   int32 Height = 14;
+   float Duration = 15;
+}
+message NotificationReceiverDto {
+   string ReceiverId = 1;
+   string GuildId = 2;
+   GuildDto Guild = 3;
+   string NotificationId = 4;
+   NotificationDto Notification = 5;
+   string UserId = 6;
+   UserDto User = 7;
+   string UserMemberId = 8;
+   GuildMemberDto UserMember = 9;
+   bool HasViewed = 10;
+}
+message NotifyLivecastsEvent {
+   int32 event_type = 1;
+   string sign = 2;
+   int64 t = 3;
+   int32 appid = 4;
+   string app = 5;
+   string appname = 6;
+   string stream_id = 7;
+   string channel_id = 8;
+   int64 event_time = 9;
+   string sequence = 10;
+   string node = 11;
+   string user_ip = 12;
+   string stream_param = 13;
+   int64 push_duration = 14;
+   int32 errcode = 15;
+   string errmsg = 16;
+   string file_id = 17;
+   string file_format = 18;
+   int64 start_time = 19;
+   int64 end_time = 20;
+   int64 duration = 21;
+   int64 file_size = 22;
+   string video_url = 23;
+   int64 create_time = 24;
+   int32 width = 25;
+   int32 height = 26;
+   string pic_url = 27;
+   string pic_full_url = 28;
+}
+message NotifyLivecastsEventResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message PostDto {
+   int64 postId = 1;
+   string title = 2;
+   string description = 3;
+   string avatarUrl = 4;
+   int32 status = 5;
+   string statusMessage = 6;
+   string creatorId = 7;
+   UserDto creator = 8;
+   string creatorMemberId = 9;
+   GuildMemberDto creatorMember = 10;
+   bool isCurrentCreator = 11;
+   string createdDate = 12;
+   bool hasUserViewed = 13;
+   bool hasUserJoined = 14;
+   string actionUrl = 15;
+   double weight = 16;
+}
+message RegisterDevice {
+   string DeviceToken = 1;
+}
+message RegisterDeviceResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message RemindDiscussReceivers {
+   string DiscussId = 1;
+   int32 RemindType = 2;
+}
+message RemindDiscussReceiversResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message RemindInformationReceivers {
+   string InformationId = 1;
+   int32 RemindType = 2;
+}
+message RemindInformationReceiversResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message RemindLivecastReceivers {
+   string LivecastId = 1;
+   int32 RemindType = 2;
+}
+message RemindLivecastReceiversResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message RemindNotificationReceivers {
+   string NotificationId = 1;
+   int32 RemindType = 2;
+}
+message RemindNotificationReceiversResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message ReplyUserFeedback {
+   string FeedbackId = 1;
+   string Description = 2;
+}
+message ReplyUserFeedbackResponse {
+   UserFeedbackDto Feedback = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message RequestSecurityToken {
+   string StampId = 1;
+   int32 Type = 2;
+   string Purpose = 3;
+}
+message RequestSecurityTokenResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message ResetAccountPassword {
+   string PhoneNumber = 1;
+   string Token = 2;
+   string Password = 3;
+}
+message ResetAccountPasswordResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message ResponseError {
+   string ErrorCode = 1;
+   string FieldName = 2;
+   string Message = 3;
+   map<string,string> Meta = 4;
+}
+message ResponseStatus {
+   string ErrorCode = 1;
+   string Message = 2;
+   string StackTrace = 3;
+   repeated ResponseError Errors = 4;
+   map<string,string> Meta = 5;
+}
+message SearchAudioFiles {
+   string Query = 1;
+   string Category = 2;
+   string OrderBy = 3;
+   bool Descending = 4;
+   int32 Skip = 5;
+   int32 Limit = 6;
+}
+message SearchAudioFilesResponse {
+   repeated AudioDto Audios = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SearchDiscussContents {
+   string DiscussId = 1;
+   int32 Type = 2;
+   int32 Status = 3;
+   string OrderBy = 4;
+   bool Descending = 5;
+   int32 Skip = 6;
+   int32 Limit = 7;
+}
+message SearchDiscussContentsResponse {
+   repeated DiscussContentDto Contents = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SearchGuildGroupMembers {
+   string GroupId = 1;
+   string Query = 2;
+   int32 MemberRole = 3;
+   int32 MemberStatus = 4;
+   string OrderBy = 5;
+   bool Descending = 6;
+   int32 Skip = 7;
+   int32 Limit = 8;
+}
+message SearchGuildGroupMembersResponse {
+   repeated GuildMemberDto Members = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SearchGuildGroups {
+   string GuildId = 1;
+   string Query = 2;
+   string OrderBy = 3;
+   bool Descending = 4;
+   int32 Skip = 5;
+   int32 Limit = 6;
+}
+message SearchGuildGroupsResponse {
+   repeated GuildGroupDto Groups = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SearchGuildMembers {
+   string GuildId = 1;
+   string Query = 2;
+   int32 Role = 3;
+   int32 Status = 4;
+   string OrderBy = 5;
+   bool Descending = 6;
+   int32 Skip = 7;
+   int32 Limit = 8;
+}
+message SearchGuildMembersResponse {
+   repeated GuildMemberDto Members = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SearchImageFiles {
+   string Query = 1;
+   string Category = 2;
+   string OrderBy = 3;
+   bool Descending = 4;
+   int32 Skip = 5;
+   int32 Limit = 6;
+}
+message SearchImageFilesResponse {
+   repeated string Urls = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SetGuildFileInfo {
+   string FileId = 1;
+   int32 Type = 2;
+   string Name = 3;
+   string AvatarUrl = 4;
+   string Category = 5;
+   string ContentType = 6;
+   int32 ContentLength = 7;
+   int32 Width = 8;
+   int32 Height = 9;
+   float Duration = 10;
+}
+message SetGuildFileInfoResponse {
+   GuildFileDto File = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SetGuildGroupInfo {
+   string GroupId = 1;
+   string Name = 2;
+}
+message SetGuildGroupInfoResponse {
+   GuildGroupDto Group = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SetGuildMemberRole {
+   string GuildId = 1;
+   string UserId = 2;
+   int32 Role = 3;
+}
+message SetGuildMemberRoleResponse {
+   GuildMemberDto Member = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SetGuildMemberStatus {
+   string GuildId = 1;
+   string UserId = 2;
+   int32 Status = 3;
+   string StatusMessage = 4;
+}
+message SetGuildMemberStatusResponse {
+   GuildMemberDto Member = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SetGuildMembersRole {
+   string GuildId = 1;
+   repeated string UserIds = 2;
+   int32 Role = 3;
+}
+message SetGuildMembersRoleResponse {
+   repeated GuildMemberDto Members = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SetGuildMembersStatus {
+   string GuildId = 1;
+   repeated string UserIds = 2;
+   int32 Status = 3;
+   string StatusMessage = 4;
+}
+message SetGuildMembersStatusResponse {
+   repeated GuildMemberDto Members = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowAccount {
+}
+message ShowAccountResponse {
+   AccountDto Account = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowDiscuss {
+   string DiscussId = 1;
+}
+message ShowDiscussContentMessages {
+   string DiscussId = 1;
+   string OrderBy = 2;
+   bool Descending = 3;
+   int32 Skip = 4;
+   int32 Limit = 5;
+}
+message ShowDiscussContentMessagesResponse {
+   repeated DiscussContentMessageDto Messages = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowDiscussResponse {
+   DiscussDto Discuss = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowFavoriteInformations {
+   string GuildId = 1;
+   int32 Type = 2;
+   int32 Status = 3;
+   string OrderBy = 4;
+   bool Descending = 5;
+   int32 Skip = 6;
+   int32 Limit = 7;
+}
+message ShowFavoriteInformationsResponse {
+   repeated InformationDto Informations = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowGuild {
+   string GuildId = 1;
+}
+message ShowGuildCategories {
+   int32 Usage = 1;
+   int32 MemberRole = 2;
+   int32 MemberStatus = 3;
+   string OrderBy = 4;
+   bool Descending = 5;
+   int32 Skip = 6;
+   int32 Limit = 7;
+}
+message ShowGuildCategoriesResponse {
+   repeated GuildCategoryDto Categories = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowGuildGroups {
+   string Query = 1;
+   string OrderBy = 2;
+   bool Descending = 3;
+   int32 Skip = 4;
+   int32 Limit = 5;
+}
+message ShowGuildGroupsResponse {
+   repeated GuildGroupDto Groups = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowGuildMembers {
+   int32 Role = 1;
+   int32 Status = 2;
+   string OrderBy = 3;
+   bool Descending = 4;
+   int32 Skip = 5;
+   int32 Limit = 6;
+}
+message ShowGuildMembersResponse {
+   repeated GuildMemberDto Members = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowGuildResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowGuildTotalFlux {
+   string GuildId = 1;
+}
+message ShowGuildTotalFluxResponse {
+   GuildTotalFluxDto TotalFlux = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowGuilds {
+   int32 Role = 1;
+   int32 Status = 2;
+   string OrderBy = 3;
+   bool Descending = 4;
+   int32 Skip = 5;
+   int32 Limit = 6;
+}
+message ShowGuildsResponse {
+   repeated GuildDto Guilds = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowInformationReceivers {
+   string InformationId = 1;
+}
+message ShowInformationReceiversResponse {
+   repeated InformationReceiverDto JoinedReceivers = 1;
+   repeated InformationReceiverDto UnJoinedReceivers = 2;
+   ResponseStatus ResponseStatus = 3;
+}
+message ShowInformations {
+   string GuildId = 1;
+   int32 Type = 2;
+   int32 Status = 3;
+   string OrderBy = 4;
+   bool Descending = 5;
+   int32 Skip = 6;
+   int32 Limit = 7;
+}
+message ShowInformationsResponse {
+   repeated InformationDto Informations = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowLivecast {
+   string LivecastId = 1;
+}
+message ShowLivecastResponse {
+   LivecastDto Livecast = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowNewDiscussContentMessagesCount {
+   string DiscussId = 1;
+}
+message ShowNewDiscussContentMessagesCountResponse {
+   int32 MessagesCount = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowNotification {
+   string NotificationId = 1;
+}
+message ShowNotificationResponse {
+   NotificationDto Notification = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowPost {
+   int32 PageIndex = 1;
+   int32 PageCount = 2;
+}
+message ShowPostResponse {
+   repeated PostDto Post = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowUserFeedbacks {
+   string OrderBy = 1;
+   bool Descending = 2;
+   int32 Skip = 3;
+   int32 Limit = 4;
+}
+message ShowUserFeedbacksResponse {
+   repeated UserFeedbackDto Feedbacks = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowUserLogs {
+   int32 Action = 1;
+   string OrderBy = 2;
+   bool Descending = 3;
+   int32 Skip = 4;
+   int32 Limit = 5;
+}
+message ShowUserLogsResponse {
+   repeated UserLogDto Logs = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ShowVersion {
+   string VersionId = 1;
+}
+message ShowVersionResponse {
+   VersionDto Version = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message SignupGuildMember {
+   string GuildId = 1;
+   string PhoneNumber = 2;
+   string Token = 3;
+}
+message SignupGuildMemberResponse {
+   GuildMemberDto Member = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message StartLivecasts {
+   string Identifier = 1;
+}
+message StartLivecastsResponse {
+   repeated LivecastDto Livecasts = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message StopLivecasts {
+   string Identifier = 1;
+}
+message StopLivecastsResponse {
+   repeated LivecastDto Livecasts = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message StreamFiles {
+   repeated string Paths = 1;
+}
+message StreamServerEvents {
+   repeated string Channels = 1;
+}
+message StreamServerEventsResponse {
+   int64 EventId = 1;
+   string Channel = 2;
+   string Selector = 4;
+   string Json = 5;
+   string Op = 6;
+   string Target = 7;
+   string CssSelector = 8;
+   map<string,string> Meta = 9;
+   string UserId = 10;
+   string DisplayName = 11;
+   string ProfileUrl = 12;
+   bool IsAuthenticated = 13;
+   repeated string Channels = 14;
+   int64 CreatedAt = 15;
+   string Id = 21;
+   string UnRegisterUrl = 22;
+   string UpdateSubscriberUrl = 23;
+   string HeartbeatUrl = 24;
+   int64 HeartbeatIntervalMs = 25;
+   int64 IdleTimeoutMs = 26;
+   ResponseStatus ResponseStatus = 30;
+}
+message TakeAppleAppSiteAssociation {
+}
+message TakeAppleAppSiteAssociationResponse {
+   ApplinksDto Applinks = 1;
+}
+message TakeGuild {
+   string GuildId = 1;
+}
+message TakeGuildResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message TakeUploadTokenForQiniu {
+   string KeyToOverwrite = 1;
+}
+message TakeUploadTokenForQiniuResponse {
+   string UploadToken = 1;
+}
+message TakeUser {
+   string UserId = 1;
+}
+message TakeUserResponse {
+   UserDto User = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message ToggleDiscussContentLike {
+   string ContentId = 1;
+}
+message ToggleDiscussContentLikeResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message TransferGuild {
+   string GuildId = 1;
+   string UserId = 2;
+}
+message TransferGuildResponse {
+   GuildDto Guild = 1;
+   ResponseStatus ResponseStatus = 2;
+}
+message UnregisterDevice {
+   string DeviceToken = 1;
+}
+message UnregisterDeviceResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message UserDto {
+   string UserId = 1;
+   string DisplayName = 2;
+   string Signature = 3;
+   string Description = 4;
+   string AvatarUrl = 5;
+   string CoverUrl = 6;
+   bool IsCertificated = 7;
+   string Country = 8;
+   string Province = 9;
+   string City = 10;
+   string CreatedDate = 11;
+   int32 ViolationCount = 12;
+   bool IsBlocked = 13;
+}
+message UserFeedbackDto {
+   string FeedbackId = 1;
+   string UserId = 2;
+   UserDto User = 3;
+   string Description = 4;
+   string CreatedDate = 5;
+   bool IsReplied = 6;
+   string ReplierId = 7;
+   UserDto Replier = 8;
+   string RepliedDescription = 9;
+   string RepliedDate = 10;
+}
+message UserLogDto {
+   string LogId = 1;
+   string UserId = 2;
+   UserDto User = 3;
+   int32 Action = 4;
+   string Description = 5;
+   string CreatedDate = 6;
+}
+message VerifySecurityToken {
+   string StampId = 1;
+   int32 Type = 2;
+   string Purpose = 3;
+   string Token = 4;
+}
+message VerifySecurityTokenResponse {
+   ResponseStatus ResponseStatus = 1;
+}
+message VersionDto {
+   string Name = 1;
+   string Platform = 2;
+   string Version = 3;
+   string DownloadUrl = 4;
+   repeated string UnapprovedPackages = 5;
+   bool IsForced = 6;
+}
+message ViewManagerLogin {
+}
