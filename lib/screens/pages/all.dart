@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:igdb/bloc/all_information_bloc.dart';
 import 'package:igdb/grpcs/services.pb.dart';
+import 'package:igdb/screens/pages/discuss_detail.dart';
+import 'package:igdb/screens/pages/livecast_detail.dart';
 import 'package:igdb/screens/pages/notification_detail.dart';
 import 'package:igdb/style/theme.dart' as style;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -97,11 +99,30 @@ class _AllState extends State<All> {
           child: ListView.builder(
             itemBuilder: (c, i) => GestureDetector(
                 onTap: () => {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => new NotificationDetail(
-                                  notificationId: dtos[i].informationId)))
+                      if (dtos[i].type == 0)
+                        {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => new NotificationDetail(
+                                      notificationId: dtos[i].informationId)))
+                        }
+                      else if (dtos[i].type == 1)
+                        {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => new LivecastDetail(
+                                      livecastId: dtos[i].informationId)))
+                        }
+                      else if (dtos[i].type == 2)
+                        {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => new DiscussDetail(
+                                      discussId: dtos[i].informationId)))
+                        }
                     },
                 child: Stack(
                   children: [

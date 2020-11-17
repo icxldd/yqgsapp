@@ -77,6 +77,60 @@ class _MessageState extends State<Message> {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15), topRight: Radius.circular(15))),
       height: ScreenUtil.getInstance().getHeight(260),
+      child: Column(
+        children: [
+          Container(
+              height: ScreenUtil.getInstance().getHeight(40),
+              child: Center(
+                child: Text(
+                  '-发布活动-',
+                  style: style.TextStyles.textH3,
+                ),
+              )),
+          Expanded(
+            flex: 1,
+            child: GridView(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, childAspectRatio: 2.0),
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () => {print('通知')},
+                    child: Column(
+                      children: [
+                        Icon(Icons.ac_unit),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text('通知')
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                      onTap: () => {print('讨论')},
+                      child: Column(
+                        children: [
+                          Icon(Icons.airport_shuttle),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('讨论')
+                        ],
+                      )),
+                  GestureDetector(
+                      onTap: () => {print('直播')},
+                      child: Column(
+                        children: [
+                          Icon(Icons.all_inclusive),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('直播')
+                        ],
+                      )),
+                ]),
+          )
+        ],
+      ),
     );
   }
 }
