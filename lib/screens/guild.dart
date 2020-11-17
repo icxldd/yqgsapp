@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:igdb/GlobalState/Global.dart';
 import 'package:igdb/grpcs/services.pb.dart';
+import 'package:igdb/screens/pages/guild_detail.dart';
 import 'package:igdb/style/theme.dart' as style;
 import 'package:scroll_app_bar/scroll_app_bar.dart';
 
@@ -22,7 +23,13 @@ class _GuildState extends State<Guild> {
     return List.generate(selfList.length, (i) {
       var obj = selfList[i];
       return GestureDetector(
-          onTap: () => {print('进入教会')},
+          onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            new GuildDetail(guildId: obj.guildId)))
+              },
           child: Container(
               color: style.Colors.whiteColor2,
               margin: EdgeInsets.only(top: 10),

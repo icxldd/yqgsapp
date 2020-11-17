@@ -483,6 +483,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0+web"
+  sliverbar_with_card:
+    dependency: "direct main"
+    description:
+      name: sliverbar_with_card
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.5"
   source_span:
     dependency: transitive
     description:
