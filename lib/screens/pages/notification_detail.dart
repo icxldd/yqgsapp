@@ -19,7 +19,6 @@ class _NotificationDetailState extends State<NotificationDetail> {
   @override
   void initState() {
     super.initState();
-    print(widget.notificationId);
     // client
     //     .getShowNotification(
     //         ShowNotification()..notificationId = widget.notificationId)
@@ -55,61 +54,65 @@ class _NotificationDetailState extends State<NotificationDetail> {
               Widget imageWidget = Column(
                 children: objs,
               );
-              return Container(
-                margin: EdgeInsets.only(left: 10, top: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "${response.notification.title}",
-                      style: style.TextStyles.textH1,
-                    ),
-                    Container(
-                        margin: EdgeInsets.only(left: 5, top: 5),
-                        child: Column(
-                          children: [
-                            Row(
+              return Stack(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 10, top: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "${response.notification.title}",
+                          style: style.TextStyles.textH1,
+                        ),
+                        Container(
+                            margin: EdgeInsets.only(left: 5, top: 5),
+                            child: Column(
                               children: [
-                                Text(
-                                  response.notification.guild.displayName,
-                                  style: style.TextStyles.textH4,
+                                Row(
+                                  children: [
+                                    Text(
+                                      response.notification.guild.displayName,
+                                      style: style.TextStyles.textH4,
+                                    ),
+                                    Text(
+                                      '|',
+                                      style: style.TextStyles.textH4,
+                                    ),
+                                    Text(
+                                      response.notification.creator.displayName,
+                                      style: style.TextStyles.textH4,
+                                    ),
+                                    Text(
+                                      '|',
+                                      style: style.TextStyles.textH4,
+                                    ),
+                                    Text(
+                                      response.notification.createdDate,
+                                      style: style.TextStyles.textH4,
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  '|',
-                                  style: style.TextStyles.textH4,
+                                SizedBox(
+                                  height: 10,
                                 ),
-                                Text(
-                                  response.notification.creator.displayName,
-                                  style: style.TextStyles.textH4,
-                                ),
-                                Text(
-                                  '|',
-                                  style: style.TextStyles.textH4,
-                                ),
-                                Text(
-                                  response.notification.createdDate,
-                                  style: style.TextStyles.textH4,
-                                ),
+                                Container(
+                                  // height: ScreenUtil.getInstance().getHeight(50),
+                                  child: Text(
+                                      response.notification.description +
+                                          response.notification.description,
+                                      maxLines: 5),
+                                )
                               ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              // height: ScreenUtil.getInstance().getHeight(50),
-                              child: Text(
-                                  response.notification.description +
-                                      response.notification.description,
-                                  maxLines: 5),
-                            )
-                          ],
-                        )),
-                    SizedBox(
-                      height: 5,
+                            )),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        imageWidget
+                      ],
                     ),
-                    imageWidget
-                  ],
-                ),
+                  ),
+                ],
               );
             } else {
               return Container(

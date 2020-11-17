@@ -43,12 +43,14 @@ class _LoginState extends State<Login> {
                   .then((authResponse) => {
                         if (authResponse.responseStatus.errorCode == "")
                           {
+                            selfLoginId = authResponse.userId,
                             initGrpcInstance(
                                 options: CallOptions(metadata: {
                               'X-ss-pid': authResponse.sessionId,
                               'X-ss-opt': 'perm'
                             })).then((value) async => {
                                   // Navigator.pushNamed(context, '/home')
+                                  await initGrpcEventStream(),
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(

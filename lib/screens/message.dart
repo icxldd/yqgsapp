@@ -1,3 +1,4 @@
+import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
 import 'package:igdb/screens/pages/all.dart';
 import 'package:igdb/style/theme.dart' as style;
@@ -49,7 +50,33 @@ class _MessageState extends State<Message> {
           Center(child: Text('轮船')),
           Center(child: Text('轮船')),
         ]),
+        floatingActionButton: FloatingActionButton(
+          elevation: 0,
+          child: Icon(
+            Icons.edit,
+            size: 30,
+          ),
+          onPressed: () {
+            showModalBottomSheet(
+                backgroundColor: Colors.transparent,
+                context: context,
+                builder: (BuildContext context) {
+                  return _buildModalBottomSheet();
+                });
+          },
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       ),
+    );
+  }
+
+  Widget _buildModalBottomSheet() {
+    return Container(
+      decoration: BoxDecoration(
+          color: style.Colors.whiteColor2,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15), topRight: Radius.circular(15))),
+      height: ScreenUtil.getInstance().getHeight(260),
     );
   }
 }

@@ -19,6 +19,15 @@ class AllInformationBloc {
             {chaceList.addAll(x.informations), _subject.sink.add(chaceList)});
   }
 
+  updateRedDotState(Map obj) async {
+    chaceList
+        .where((element) => element.informationId == obj['informationId'])
+        .forEach((element) {
+      element.hasUserViewed = obj['hasUserViewed'];
+    });
+    _subject.sink.add(chaceList);
+  }
+
   dispose() {
     _subject.close();
   }

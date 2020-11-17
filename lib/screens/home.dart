@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:igdb/screens/guild.dart';
 import 'package:igdb/screens/main_screen.dart';
 import 'package:igdb/style/theme.dart' as style;
 
 import 'message.dart';
+import 'mypage.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -16,8 +18,8 @@ class _HomeState extends State<Home> {
 
   List<Widget> _pageList = [
     Message(),
-    Message(),
-    Message(),
+    Guild(),
+    MyPage(),
   ];
 
   List<BottomNavigationBarItem> _barItem = [
